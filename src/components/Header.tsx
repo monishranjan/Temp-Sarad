@@ -19,7 +19,7 @@ export default function Header() {
       initial={{ y: -100, opacity: 0, x: "-50%" }}
       animate={{ y: 0, opacity: 1, x: "-50%" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-4 left-1/2 z-100 w-[calc(100%-2rem)] max-w-6xl"
+      className="fixed top-4 left-1/2 z-100 w-[calc(100%-2rem)] container mx-auto"
     >
       <nav className="card-fintech px-6 md:px-8 py-3.5 flex items-center justify-between shadow-modern">
         <Link href="/" className="text-2xl font-bold text-primary tracking-tight">

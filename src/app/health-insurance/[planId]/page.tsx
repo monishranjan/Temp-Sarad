@@ -67,6 +67,14 @@ export default function PlanDetailsPage({ params }: { params: Promise<{ planId: 
     }
   };
 
+  const brochureMapping: Record<string, string> = {
+    'activ-one-max': '/brochures/aditya_birla_capital.pdf',
+    'care-supreme': '/brochures/care_health_insurance.pdf',
+    'medicare-premier': '/brochures/tata_aig_medicare_premier_brochure.pdf'
+  };
+
+  const brochureUrl = brochureMapping[planId];
+
   return (
     <div className="bg-bg-main min-h-screen pb-32" style={currentTheme}>
       
@@ -97,12 +105,19 @@ export default function PlanDetailsPage({ params }: { params: Promise<{ planId: 
               <motion.p variants={fadeUp} className="text-xl lg:text-2xl text-white/70 font-light leading-relaxed max-w-xl">{plan.tagline}</motion.p>
               
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 pt-4">
-                <button className="px-8 py-4 rounded-xl font-bold text-primary bg-secondary hover:bg-secondary-light transition-colors shadow-[0_0_20px_rgba(0,210,135,0.2)] flex items-center gap-2 hover:scale-105">
+                <Link href="/contact" className="px-8 py-4 rounded-xl font-bold text-primary bg-secondary hover:bg-secondary-light transition-colors shadow-[0_0_20px_rgba(0,210,135,0.2)] flex items-center gap-2 hover:scale-105">
                   Buy Policy Now <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="px-8 py-4 rounded-xl font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center gap-2 backdrop-blur-md">
-                  <Download className="w-4 h-4" /> Brochure
-                </button>
+                </Link>
+                {brochureUrl && (
+                  <a 
+                    href={brochureUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 rounded-xl font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center gap-2 backdrop-blur-md"
+                  >
+                    <Download className="w-4 h-4" /> Brochure
+                  </a>
+                )}
               </motion.div>
             </motion.div>
             
@@ -370,12 +385,19 @@ export default function PlanDetailsPage({ params }: { params: Promise<{ planId: 
 
             {/* Mobile Action Bar */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-primary/10 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 flex gap-4">
-              <button className="flex-1 py-3.5 rounded-xl font-bold text-white bg-primary hover:bg-primary-light transition-colors shadow-fintech text-sm">
+              <Link href="/contact" className="flex-1 py-3.5 rounded-xl font-bold text-white bg-primary hover:bg-primary-light transition-colors shadow-fintech text-sm flex items-center justify-center">
                 Buy Now
-              </button>
-              <button className="flex-1 py-3.5 rounded-xl font-bold text-primary bg-bg-alt hover:bg-primary/5 transition-colors text-sm">
-                Brochure
-              </button>
+              </Link>
+              {brochureUrl && (
+                <a 
+                  href={brochureUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3.5 rounded-xl font-bold text-primary bg-bg-alt hover:bg-primary/5 transition-colors text-sm flex items-center justify-center"
+                >
+                  Brochure
+                </a>
+              )}
             </div>
 
           </div>
