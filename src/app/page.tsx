@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import TextRotator from '@/components/TextRotator';
 
 import ContactForm from '@/components/ContactForm';
+import HeroCarousel from '@/components/HeroCarousel';
 
 export default function Home() {
   const fadeUp = {
@@ -71,21 +72,9 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative w-full aspect-4/5 lg:aspect-3/4 rounded-3xl overflow-hidden shadow-modern group"
+            className="relative w-full aspect-4/5 lg:aspect-3/4 rounded-3xl overflow-hidden shadow-modern"
           >
-             <Image 
-              src="/hero_health_insurance.png" 
-              alt="Sarad Chaudhary Advisory" 
-              fill 
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              priority
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-primary/60 via-transparent to-transparent" />
-            
-            {/* Floating Glass Element */}
-            <div className="absolute bottom-8 left-8 right-8 p-6 glass-modern rounded-2xl transform transition-transform duration-500 group-hover:-translate-y-2">
-              <p className="text-white font-medium">&quot;The best investment is securing what you already have.&quot;</p>
-            </div>
+             <HeroCarousel />
           </motion.div>
         </div>
       </section>
@@ -100,8 +89,8 @@ export default function Home() {
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
             <div className="relative z-10 card-fintech overflow-hidden aspect-square max-w-md mx-auto lg:mx-0">
                <Image 
-                src="/hero_health_insurance.png" 
-                alt="Sarad Chaudhary Profile" 
+                src="/images/sarad_image.png" 
+                alt="Sarad Kumar Chaudhary Profile" 
                 width={500}
                 height={500}
                 className="object-cover rounded-2xl transition-all duration-700"

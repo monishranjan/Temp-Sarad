@@ -37,7 +37,7 @@ export default function AboutPage() {
               What <span className="text-secondary">Matters Most</span>.
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl text-text-muted leading-relaxed font-light">
-              I am Sarad Chaudhary, an experienced insurance advisor based in Guwahati, Assam. My journey in the insurance industry spans over two decades, helping thousands of families secure their futures.
+              I am Sarad Kumar Chaudhary, an experienced insurance advisor based in Guwahati, Assam. My journey in the insurance industry spans over two decades, helping thousands of families secure their futures.
             </motion.p>
           </motion.div>
         </div>
@@ -57,8 +57,8 @@ export default function AboutPage() {
               <div className="absolute -inset-4 bg-linear-to-tr from-secondary/20 to-accent/20 rounded-[40px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
               <div className="relative aspect-3/4 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                 <Image 
-                  src="/hero_health_insurance.png" 
-                  alt="Sarad Chaudhary Portrait" 
+                  src="/images/sarad_image.png" 
+                  alt="Sarad Kumar Chaudhary Portrait" 
                   fill 
                   className="object-cover"
                 />
