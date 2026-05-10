@@ -1,26 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #0a1128; /* Richer navy, less black */
+  --color-primary-light: #16244f;
+  --color-secondary: #00d287; /* Vibrant emerald */
+  --color-secondary-dark: #00a66a;
+  --color-accent: #2563eb; /* Trust tech blue */
+  
+  --color-bg-main: #f8fafc; /* Very subtle slate tint instead of pure white */
+  --color-bg-alt: #f1f5f9; 
+  --color-bg-card: #ffffff;
+  
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  
+  --shadow-fintech: 0 12px 36px -12px rgba(10, 17, 40, 0.08);
+  --shadow-fintech-hover: 0 20px 40px -8px rgba(10, 17, 40, 0.12);
+  --shadow-badge: 0 4px 12px rgba(0, 210, 135, 0.2);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0a1128;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='dark'] {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --color-bg-main: #020617;
+  --color-bg-alt: #0f172a;
+  --color-bg-card: #0f172a;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --shadow-fintech: 0 12px 36px -12px rgba(0, 0, 0, 0.8);
+  --shadow-fintech-hover: 0 20px 40px -8px rgba(0, 0, 0, 1);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Fix Container Centering for v4 */
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 1280px;
+}
+
+/* Typography Scale Utilities */
+@utility text-display-large {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+@utility text-display {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* Fintech Card Utility */
+@utility card-fintech {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(10, 17, 40, 0.06);
+  box-shadow: var(--shadow-fintech);
+  border-radius: var(--radius-2xl);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] .card-fintech {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility card-fintech-hover {
+  @apply hover:-translate-y-1;
+  box-shadow: var(--shadow-fintech-hover);
+  border-color: rgba(10, 17, 40, 0.1);
+}
+
+[data-theme='dark'] .card-fintech-hover:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Complex Gradients */
+@utility text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+}
+
+@utility text-gradient-accent {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Typography Scale Utilities */
+@utility text-display-large {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+@utility text-display {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* Glassmorphism - Modernized */
+@utility glass-modern {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-glass);
+}
+
+[data-theme='dark'] .glass-modern {
+  background: rgba(10, 15, 44, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Complex Gradients */
+@utility text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+}
+
+@utility text-gradient-accent {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, var(--color-secondary) 0%, #00b386 100%);
+}
+
+[data-theme='dark'] {
+  --background: #050505;
+  --foreground: #f0f0f0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Utility - using tailwind-compatible classes if possible, but keep custom for precision */
+@utility glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+@utility glass-dark {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Premium Button Utility */
+@utility btn-premium {
+  @apply px-7 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:-translate-y-0.5 hover:shadow-xl;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
 }
