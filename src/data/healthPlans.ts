@@ -35,13 +35,13 @@ export interface HealthPlan {
 export const healthPlans: HealthPlan[] = [
   {
     id: "activ-one-max",
-    name: "Aditya Birla Activ One MAX+",
+    name: "Aditya Birla Activ One",
     tagline: "Modern health insurance with wellness ecosystem and chronic care support.",
     image: "/plan_activ_one_max.png",
-    sumInsured: "2 Lacs to 6 Crores",
+    sumInsured: "10 Lacs to 6 Crores",
     sumInsuredOptions: ["2L", "3L", "4L", "5L", "7L", "10L", "15L", "20L", "25L", "50L", "75L", "1Cr", "2Cr", "3Cr", "4Cr", "5Cr", "6Cr"],
     hospitalization: "Actuals up to Sum Insured (Room Rent, ICU, Ambulance)",
-    prePostHosp: "90 days Pre / 180 days Post",
+    prePostHosp: "90 days Pre | 180 days Post",
     modernDayCare: "Fully Covered",
     restoration: "Super Reload (Unlimited refill from 2nd claim onwards)",
     superCredit: "100% of Base SI per year (Max 500% increase, max 3 Cr)",
@@ -75,7 +75,7 @@ export const healthPlans: HealthPlan[] = [
     optionalBenefits: [
       "Reduction in Specific Disease Waiting: 2 years to 1 year",
       "Reduction in PED Waiting: 3 years to 2 years OR 1 year",
-      "Room Rent Options: Single Private Room / Shared Accommodation",
+      "Room Rent actual upto sum insured (instead of capping at 1% or 2%)",
       "Deductible: ₹15,000 or ₹25,000",
       "Preferred Provider Network Discount: 10%",
       "Critical Illness Cover: 10L / 15L / 20L / 25L",
